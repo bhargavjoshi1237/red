@@ -16,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
+ console.log("XD")
  let page = req.query.page;
  fetch("https://caring-fawn-44928.upstash.io/get/"+page, {
       headers: {
