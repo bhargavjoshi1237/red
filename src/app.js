@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
         Authorization: "Bearer Aa-AASQgNTkwY2Q2NjAtN2FjZC00MzdhLWI4ZDQtZDQwMmQxOGJjODNjZTA0YjkzZDU1MDIyNDQyNDliN2QwNjE5NWQxOTI1NDA="
       }
     }).then(response => response.json())
-      .then(data => res.json(data.result)); 
+      .then(data => res.json(data.result),data => console.log(data)); 
  
 });
 
