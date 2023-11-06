@@ -17,33 +17,13 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
  let page = req.query.page;
-  
-  try {
-    // Make a fetch request to an external API
-    const apiUrl = 'https://caring-fawn-44928.upstash.io/get/user';
-    const fetchOptions = {
-      headers: {
-        Authorization: "Bearer Aa-AASQgNTkwY2Q2NjAtN2FjZC00MzdhLWI4ZDQtZDQwMmQxOGJjODNjZTA0YjkzZDU1MDIyNDQyNDliN2QwNjE5NWQxOTI5NDA="
-      }
-    };
-
-    fetch("https://caring-fawn-44928.upstash.io/get/"+page, {
+ fetch("https://caring-fawn-44928.upstash.io/get/"+page, {
       headers: {
         Authorization: "Bearer Aa-AASQgNTkwY2Q2NjAtN2FjZC00MzdhLWI4ZDQtZDQwMmQxOGJjODNjZTA0YjkzZDU1MDIyNDQyNDliN2QwNjE5NWQxOTI1NDA="
       }
     }).then(response => response.json())
-      .then(data => res.json(data.result));
-
-
-    const response = await fetch(apiUrl, fetchOptions);
-    if (!response.ok) {
-      console.log(JSON.stringify(response.result))
-    }
-
-  } catch (error) {
-    // Handle any errors that occur during the fetch or JSON parsing
-    res.status(500).json({ error: error.message });
-  }
+      .then(data => res.json(data.result)); 
+ 
 });
 
 app.use('/api/v1', api);
